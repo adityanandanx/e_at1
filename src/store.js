@@ -8,8 +8,15 @@ export const index = ref(0)
 export const curImg = computed(() => images.value[index.value])
 
 export const nextSlide = () => {
-  index.value = (index.value + 1) % images.value.length
+  if (images.value.length) index.value = (index.value + 1) % images.value.length
+  else {
+    index.value = 0
+  }
 }
 export const prevSlide = () => {
-  index.value = (index.value - 1 + images.value.length) % images.value.length
+  if (images.value.length)
+    index.value = (index.value - 1 + images.value.length) % images.value.length
+  else {
+    index.value = 0
+  }
 }
