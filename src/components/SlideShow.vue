@@ -42,11 +42,13 @@ const toggleFullScreen = () => {
       <FileSelect />
       <Ordering />
     </div>
-    <div class="col-12 col-xl-8 position-relative overflow-hidden" ref="slide" style="height: 80vh">
-      <Cmd />
-      <component :is="comps[theme]" v-if="images.length" />
-      <div class="position-absolute end-0 top-0">
-        <button @click="toggleFullScreen" class="btn btn-dark m-3">Toggle Fullscreen</button>
+    <div class="col-12 col-xl-8">
+      <div class="position-relative overflow-hidden rounded" ref="slide" style="height: 80vh">
+        <Cmd />
+        <component :is="comps[theme]" v-if="images.length" />
+        <div class="position-absolute end-0 top-0">
+          <button @click="toggleFullScreen" class="btn btn-dark m-3">Toggle Fullscreen</button>
+        </div>
       </div>
     </div>
   </div>

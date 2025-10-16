@@ -26,7 +26,7 @@ const handleDrop = (e) => {
   index.value = 0
 }
 
-loadSample()
+// loadSample()
 </script>
 
 <template>

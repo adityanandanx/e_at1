@@ -21,7 +21,7 @@ import { curImg } from '@/store'
 
 <style scoped>
 .e {
-  perspective: 1000px;
+  perspective: 1500px;
   z-index: 0;
 }
 
@@ -49,12 +49,12 @@ import { curImg } from '@/store'
   transform: rotateY(0deg);
 }
 .e-leave-to .left {
-  transform: rotateY(123deg);
+  transform: rotateY(-90deg);
 }
 .e-leave-from .right {
   transform: rotateY(0deg);
 }
 .e-leave-to .right {
-  transform: rotateY(-123deg);
+  transform: rotateY(90deg);
 }
 </style>
