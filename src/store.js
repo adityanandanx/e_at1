@@ -1,8 +1,8 @@
 import { computed, ref } from 'vue'
 
 export const images = ref([])
-export const mode = ref('auto')
-export const theme = ref('b')
+export const mode = ref('manual')
+export const theme = ref('a')
 export const index = ref(0)
 
 export const curImg = computed(() => images.value[index.value])
