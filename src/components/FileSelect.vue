@@ -1,28 +1,45 @@
 <script setup>
 import { images, index } from '@/store'
 
+const formatCaption = (fname) => {
+  return fname.replaceAll('-', ' ').split('.')[0]
+}
+
+const samples = [
+  {
+    src: '/basilique-notre-dame-de-fourviere-lyon.jpg',
+    caption: formatCaption('basilique-notre-dame-de-fourviere-lyon.jpg'),
+  },
+  {
+    src: '/beautiful-view-in-lyon.jpg',
+    caption: formatCaption('beautiful-view-in-lyon.jpg'),
+  },
+  {
+    src: '/place-bellecour-lyon.jpg',
+    caption: formatCaption('place-bellecour-lyon.jpg'),
+  },
+  {
+    src: '/tour-metalique-lyon.jpg',
+    caption: formatCaption('tour-metalique-lyon.jpg'),
+  },
+]
+
 const addImage = (src, fname) => {
-  const caption = fname.replaceAll('-', ' ').split('.')[0]
-  //   console.log({ src, caption })
+  const caption = formatCaption(fname)
   images.value.push({ src, caption })
 }
+
 const loadSample = () => {
-  addImage(
-    '/basilique-notre-dame-de-fourviere-lyon.jpg',
-    'basilique-notre-dame-de-fourviere-lyon.jpg',
-  )
-  addImage('/beautiful-view-in-lyon.jpg', 'beautiful-view-in-lyon.jpg')
-  addImage('/place-bellecour-lyon.jpg', 'place-bellecour-lyon.jpg')
-  addImage('/tour-metalique-lyon.jpg', 'tour-metalique-lyon.jpg')
+  images.value = samples
 }
 
 const handleDrop = (e) => {
   const files = e.dataTransfer.files
-  console.log(files)
-
+  const temp = []
   for (const f of files) {
-    addImage(URL.createObjectURL(f), f.name)
+    temp.push({ src: URL.createObjectURL(f), caption: formatCaption(f.name) })
   }
+  images.value = temp
   index.value = 0
 }
 
