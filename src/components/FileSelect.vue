@@ -1,5 +1,6 @@
 <script setup>
 import { images, index } from '@/store'
+import E from './themes/E.vue'
 
 const formatCaption = (fname) => {
   return fname.replaceAll('-', ' ').split('.')[0]
@@ -33,8 +34,7 @@ const loadSample = () => {
   images.value = samples
 }
 
-const handleDrop = (e) => {
-  const files = e.dataTransfer.files
+const handleFiles = (files) => {
   const temp = []
   for (const f of files) {
     temp.push({ src: URL.createObjectURL(f), caption: formatCaption(f.name) })
@@ -47,11 +47,21 @@ const handleDrop = (e) => {
 </script>
 
 <template>
-  <div class="row my-4">
+  <h2 class="display-6 mt-4">Add Slides</h2>
+  <div class="row mb-4">
+    <input
+      type="file"
+      name="files"
+      id="files"
+      placeholder="Slides"
+      class="form-control"
+      multiple
+      @change="(e) => handleFiles(e.target.files)"
+    />
     <div
       class="col-12 card vstack align-items-center justify-content-center"
       style="height: 10rem"
-      @drop.prevent="handleDrop"
+      @drop.prevent="(e) => handleFiles(e.dataTransfer.files)"
       @dragover.prevent=""
     >
       <h2>Drop files here</h2>
