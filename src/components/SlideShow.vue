@@ -36,9 +36,13 @@ const toggleFullScreen = () => {
 </script>
 
 <template>
-  <div class="position-relative rounded overflow-hidden" ref="slide" style="height: 80vh">
+  <div class="position-relative rounded overflow-hidden bg-dark" ref="slide" style="height: 80vh">
     <Cmd />
     <component :is="comps[theme]" v-if="images.length" />
+    <div v-else class="position-absolute translate-middle start-50 top-50 text-white text-center">
+      No images loaded. <br />
+      Load some images to view the slideshow
+    </div>
     <div class="position-absolute end-0 top-0">
       <button @click="toggleFullScreen" class="btn btn-dark m-3">
         {{ !isFullscreen ? 'Fullscreen' : 'Exit fullscreen' }}
