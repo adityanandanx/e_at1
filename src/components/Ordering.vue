@@ -21,7 +21,7 @@ const handleDragEnd = () => {
 </script>
 
 <template>
-  <h2 class="display-6">Order Slides</h2>
+  <h2 class="display-6">Order Photos</h2>
   <p>Drag and drop slides to re-arrange them</p>
   <div class="row g-2">
     <div class="col-4 col-md-3 col-xl-4" v-for="(img, i) in images">

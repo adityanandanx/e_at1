@@ -1,6 +1,5 @@
 <script setup>
 import { images, index } from '@/store'
-import E from './themes/E.vue'
 
 const formatCaption = (fname) => {
   return fname.replaceAll('-', ' ').split('.')[0]
@@ -47,7 +46,7 @@ const handleFiles = (files) => {
 </script>
 
 <template>
-  <h2 class="display-6 mt-4">Add Slides</h2>
+  <h2 class="display-6 mt-4">Add Photos</h2>
   <div class="row mb-4">
     <input
       type="file"
